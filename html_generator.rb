@@ -52,7 +52,7 @@ class HtmlGenerator
 			end
 			page_num += 1
 
-			break if page_num == 5
+			break if page_num == 6
 			sleep 20
 		end
 	end
@@ -67,7 +67,7 @@ class HtmlGenerator
 			puts "<li class='id'>Item ID: #{product.id}</li>"
 			puts "<li class='origin'>Product of #{product.origin}</li>"
 			cost = "%.2f" % (product.price_in_cents.to_f/100)
-			puts "<li class='package_and_cost'>#{product.total_package_units}x #{product.package_unit_volume_in_milliliters}ml #{product.package_unit_type}s @ $#{cost}</li>"
+			puts "<li class='package_and_cost'>#{product.total_package_units} x #{product.package_unit_type}s (#{product.package_unit_volume_in_milliliters}ml) @ $#{cost}</li>"
 			puts "<li class='serving_suggestion'>#{product.serving_suggestion}</li>" 
 			puts "</ul>"
 			puts "</li>"
@@ -87,7 +87,7 @@ class HtmlGenerator
 		puts "<li class='id'>Item ID: #{product.id}</li>"
 		puts "<li class='origin'>Product of #{product.origin}</li>"
 		cost = "%.2f" % (product.price_in_cents.to_f/100)
-		puts "<li class='package_and_cost'>#{product.total_package_units} #{product.package_unit_volume_in_milliliters}ml #{product.package_unit_type} @ $#{cost}</li>"
+		puts "<li class='package_and_cost'>#{product.total_package_units} x #{product.package_unit_type}s (#{product.package_unit_volume_in_milliliters}ml) @ $#{cost}</li>"
 		puts "<li class='serving_suggestion'>#{product.serving_suggestion}</li>"
 		puts "</ul>"
 		puts "</li>"
