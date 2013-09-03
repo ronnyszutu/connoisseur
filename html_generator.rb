@@ -45,10 +45,11 @@ class HtmlGenerator
 					prod.image_thumb_url=(index["image_thumb_url"])
 					prod.image_url=(index["image_url"])
 					prod.price_in_cents=(index["price_in_cents"])
+
+					@products.merge! prod.id => prod
 				else
 					continue_parsing = false
 				end
-				@products.merge! prod.id => prod
 			end
 			page_num += 1
 
@@ -102,12 +103,14 @@ class HtmlGenerator
 		puts "<title>Connoisseur</title>"
 		puts "</head>"
 		puts "<body>"
+		puts "<div id='content'>"
 		puts "<h1>Connoisseur App</h1>"
 		puts "<ul class='product_list'>"
 	end
 
 	def print_footer
 		puts "</ul>"
+		puts "</div>"
 		puts "</body>"
 		puts "</html>"
 	end
